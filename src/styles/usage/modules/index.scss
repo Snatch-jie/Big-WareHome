@@ -1,0 +1,160 @@
+// 首页样式： index.string
+.m-index {
+  width: 100%;
+  height: 100%;
+  @include flexbox();
+  @include flex-direction(column);
+  header {
+    width: 100%;
+    height: .44rem;
+    background: $base-color;
+    ul {
+      width: 100%;
+      height: .44rem;
+      
+      @include flexbox();
+      // 外围li垂直居中
+       @include align-items(center);
+       @include justify-content(center);
+      li:nth-child(1){
+          width: 20px;   
+      }
+      li:nth-child(3){
+          width: 20px;
+          
+      }
+      li:nth-child(4){
+          width: 20px; 
+      }
+  
+        li:nth-child(2) {
+                @include flex();
+                ul{
+                    @include flexbox();
+                    li{
+                        @include flexbox();
+                        @include flex();
+                        @include align-items(center);
+                         @include justify-content(center);
+                    }
+                }
+        }
+  
+      }
+
+    
+  }
+  nav {
+    width: 100%;
+    height: .35rem;
+    ul {
+      width: 100%;
+      height: 100%;
+      @include flexbox();
+      li {
+        @include flex();
+        @include box-sizing(border-box);
+        line-height: .35rem;
+        text-align: center;
+        @include border(0 0 1px 0, #d9d9d9);
+        &.active {
+          border-bottom: solid .02rem $base-color;
+          color: $base-color;
+        }
+      }
+    }
+  }
+  section {
+    @include flex();
+    width: 100%;
+    overflow: hidden;
+//  div{  这个跟老师的不一样，没有加div的高度我就可以滚动了
+//      height: 10rem;
+//      
+//  }
+    //多行隐藏
+    div:nth-child(2){
+        p{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        p:nth-child(3){
+            display: flex;
+            span:nth-child(1){
+                flex-basis: 70%; //flex-basis 属性规定灵活项目的初始长度。
+            }
+            span:nth-child(2){
+                flex-grow: 0;//flex-grow 属性规定项目将相对于同一容器内其他灵活的项目进行扩展的量。
+                flex-shrink: 0;//flex-shrink 属性规定项目将相对于同一容器内其他灵活的项目进行收缩的量。
+                flex-basis: 30%;
+            }
+        }
+  
+    }
+    
+    ul {
+//    @include flexbox();
+//    width: 100%;
+//    margin-top: .05rem;
+      li {
+       width: 100%;
+       border-bottom: .01rem solid gray;
+        @include flexbox(); 
+        div{
+           &:nth-child(1){
+            @include flex();
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(center);
+              
+            img{
+                width: 100%;
+            }
+        }
+           &:nth-child(2){
+                @include flex(3);
+                padding-left: .1rem;
+                  line-height: .25rem;
+            p:nth-child(2){
+                font-size: 12px;
+            }
+            p:nth-child(3){
+                font-size: 12px;
+            }
+        }
+       }
+
+        
+      }
+    }
+  }
+  footer {
+    width: 100%;
+    height: .44rem;
+    background: black;
+    color:#FFFFFF;
+    @include border(1px 0 0 0, #d6d6d6);
+    ul {
+      width: 100%;
+      height: 100%;
+      @include flexbox();
+      li {
+          color: #00EEEE;
+        @include flex();
+        @include flexbox();
+        @include flex-direction(column);
+        @include align-items(center);
+        @include justify-content(center);
+
+        &:nth-child(1){
+                background: grey;
+        }
+
+ 
+      }
+    }
+  }
+}
